@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --beats: 4;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 6rem;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+}
+
+.box {
+  border: 2px solid black;
+  height: 25rem;
+  width: 90%;
+  margin: 5rem auto;
+  position: relative;
+}
+.box__beats {
+  display: flex;
+  height: 100%;
+}
+.box__beats div {
+  height: 100%;
+  width: calc(1 / var(--beats) * 100%);
+}
+.box__beats div:not(:last-child) {
+  border-right: 5px solid black;
+}
+.box__divisions {
+  --quarter-note-size: 1 / var(--beats);
+  height: 4rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+.box__divisions div:nth-child(odd) {
+  background-color: #ccc;
+}
+.box__divisions div:nth-child(even) {
+  background-color: #f4f4f4;
+}
+.box__divisions div:nth-child(1) {
+  flex: calc(var(--quarter-note-size) / 3);
+}
+.box__divisions div:nth-child(2) {
+  flex: calc(var(--quarter-note-size) / 3);
+}
+.box__divisions div:nth-child(3) {
+  flex: calc(var(--quarter-note-size) / 3);
+}
+.box__divisions div:nth-child(4) {
+  flex: calc(var(--quarter-note-size) / 2);
+}
+.box__divisions div:nth-child(5) {
+  flex: calc(var(--quarter-note-size) / 2);
+}
+.box::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-color: black;
+  position: absolute;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  bottom: -4rem;
+  transform: translateX(-50%);
+  animation: leftToRight 5s linear infinite;
+}
+
+@keyframes leftToRight {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
