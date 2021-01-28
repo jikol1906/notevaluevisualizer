@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.scss">
+    <script src="app.ts" defer></script>
 </head>
 
 <body>
-    <h1><span>4</span>
+    <h1><span>3</span>
         <br />
         <span>4</span>
     </h1>
+    <button id="play-button">Play/Pause</button>
     <div class="box">
         <div class="box__beats">
             <div></div>
             <div></div>
             <div></div>
-            <div></div>
+
+
 
 
 
@@ -26,11 +28,20 @@
         </div>
 
         <div class="box__divisions" id="divisions">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="box__divisions__division note"></div>
+            <div class="box__divisions__division pause"></div>
+            <div class="box__divisions__division note"></div>
+            <div class="box__divisions__division note"></div>
+            <div class="box__divisions__division note"></div>
+            <div class="box__divisions__division note"></div>
+            <div class="box__divisions__division note"></div>
+            <div class="box__divisions__division note"></div>
+            <div class="box__divisions__division pause"></div>
+            <div class="box__divisions__division pause"></div>
+
+
+
+
 
         </div>
     </div>

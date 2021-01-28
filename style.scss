@@ -5,7 +5,8 @@
 }
 
 :root {
-    --beats: 4;
+    --beats: 3;
+    --play-state: paused;
 }
 
 html {
@@ -16,8 +17,8 @@ html {
 h1 {
     text-align: center;
     font-size: 6rem;
-    margin-top: 5rem;
-    margin-bottom: 10rem;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
 }
 
 .box {
@@ -29,10 +30,12 @@ h1 {
 
     &__beats {
         display: flex;
+        
 
         div {
+            background: repeating-linear-gradient(90deg, transparent, transparent 25%, black 25%, black 25.34%);
             &:not(:last-child) {
-                border-right: 5px solid black;
+                border-right: 2px solid black;
             }
             height: 100%;
             width: calc(1 / var(--beats) * 100%);
@@ -42,36 +45,57 @@ h1 {
     }
 
     &__divisions {
-        --quarter-note-size: 1 / var(--beats);
+        --one-beat-size: 1 / var(--beats);
         height: 4rem;
         width: 100%;
         position: absolute;
         bottom: 0;
         display: flex;
 
-        div {
-            &:nth-child(odd) {
-                background-color: #ccc;
-            }
-            &:nth-child(even) {
-                background-color: #f4f4f4;
-            }
-
+        &__division {
             &:nth-child(1) {
-                flex: calc(var(--quarter-note-size) / 3);
+                flex: calc(var(--one-beat-size) / 2);
             }
             &:nth-child(2) {
-                flex: calc(var(--quarter-note-size) / 3);
+                flex: calc(var(--one-beat-size) / 8);
             }
             &:nth-child(3) {
-                flex: calc(var(--quarter-note-size) / 3);
+                flex: calc(var(--one-beat-size) / 16);
             }
             &:nth-child(4) {
-                flex: calc(var(--quarter-note-size) / 2);
+                flex: calc(var(--one-beat-size) / 16);
             }
             &:nth-child(5) {
-                flex: calc(var(--quarter-note-size) / 2);
+                flex: calc(var(--one-beat-size) / 16);
             }
+            &:nth-child(6) {
+                flex: calc(var(--one-beat-size) / 16);
+            }
+            &:nth-child(7) {
+                flex: calc(var(--one-beat-size) / 8);
+            }
+            &:nth-child(8) {
+                flex: calc(var(--one-beat-size) / 4);
+            }
+            &:nth-child(9) {
+                flex: calc(var(--one-beat-size) / 4);
+            }
+            &:nth-child(10) {
+                flex: calc(var(--one-beat-size) / 2);
+            }
+        }
+
+        .note {
+            &:nth-child(odd) {
+                background-color: rgb(99, 39, 39);
+            }
+            &:nth-child(even) {
+                background-color: #966a6a;
+            }
+        }
+
+        .pause {
+            background-color: black;
         }
     }
 
@@ -84,8 +108,20 @@ h1 {
         clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         bottom: -4rem;
         transform: translateX(-50%);
-     animation: leftToRight 5s linear infinite ;
+        animation: leftToRight 3s linear infinite;
+        animation-play-state: var(--play-state);
     }
+}
+
+#play-button {
+    display:block;
+    margin:0 auto;
+    padding:1.25rem 2rem;
+    cursor:pointer;
+    font-size:2rem;
+    border:none;
+    background-color: burlywood;
+    font-weight: bold;
 }
 
 @keyframes leftToRight {

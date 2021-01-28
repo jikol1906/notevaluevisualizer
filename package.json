@@ -1,0 +1,29 @@
+{
+  "name": "noteValueVisualizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Metronome.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jikol1906/notevaluevisualizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jikol1906/notevaluevisualizer/issues"
+  },
+  "homepage": "https://github.com/jikol1906/notevaluevisualizer#readme",
+  "dependencies": {
+    "parcel": "^1.12.4",
+    "tone": "^14.7.77"
+  },
+  "devDependencies": {
+    "sass": "^1.32.5",
+    "typescript": "^4.1.3"
+  }
+}

@@ -5,7 +5,8 @@
 }
 
 :root {
-  --beats: 4;
+  --beats: 3;
+  --play-state: paused;
 }
 
 html {
@@ -16,8 +17,8 @@ html {
 h1 {
   text-align: center;
   font-size: 6rem;
-  margin-top: 5rem;
-  margin-bottom: 10rem;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
 }
 
 .box {
@@ -32,40 +33,59 @@ h1 {
   height: 100%;
 }
 .box__beats div {
+  background: repeating-linear-gradient(90deg, transparent, transparent 25%, black 25%, black 25.34%);
   height: 100%;
   width: calc(1 / var(--beats) * 100%);
 }
 .box__beats div:not(:last-child) {
-  border-right: 5px solid black;
+  border-right: 2px solid black;
 }
 .box__divisions {
-  --quarter-note-size: 1 / var(--beats);
+  --one-beat-size: 1 / var(--beats);
   height: 4rem;
   width: 100%;
   position: absolute;
   bottom: 0;
   display: flex;
 }
-.box__divisions div:nth-child(odd) {
-  background-color: #ccc;
+.box__divisions__division:nth-child(1) {
+  flex: calc(var(--one-beat-size) / 2);
 }
-.box__divisions div:nth-child(even) {
-  background-color: #f4f4f4;
+.box__divisions__division:nth-child(2) {
+  flex: calc(var(--one-beat-size) / 8);
 }
-.box__divisions div:nth-child(1) {
-  flex: calc(var(--quarter-note-size) / 3);
+.box__divisions__division:nth-child(3) {
+  flex: calc(var(--one-beat-size) / 16);
 }
-.box__divisions div:nth-child(2) {
-  flex: calc(var(--quarter-note-size) / 3);
+.box__divisions__division:nth-child(4) {
+  flex: calc(var(--one-beat-size) / 16);
 }
-.box__divisions div:nth-child(3) {
-  flex: calc(var(--quarter-note-size) / 3);
+.box__divisions__division:nth-child(5) {
+  flex: calc(var(--one-beat-size) / 16);
 }
-.box__divisions div:nth-child(4) {
-  flex: calc(var(--quarter-note-size) / 2);
+.box__divisions__division:nth-child(6) {
+  flex: calc(var(--one-beat-size) / 16);
 }
-.box__divisions div:nth-child(5) {
-  flex: calc(var(--quarter-note-size) / 2);
+.box__divisions__division:nth-child(7) {
+  flex: calc(var(--one-beat-size) / 8);
+}
+.box__divisions__division:nth-child(8) {
+  flex: calc(var(--one-beat-size) / 4);
+}
+.box__divisions__division:nth-child(9) {
+  flex: calc(var(--one-beat-size) / 4);
+}
+.box__divisions__division:nth-child(10) {
+  flex: calc(var(--one-beat-size) / 2);
+}
+.box__divisions .note:nth-child(odd) {
+  background-color: #632727;
+}
+.box__divisions .note:nth-child(even) {
+  background-color: #966a6a;
+}
+.box__divisions .pause {
+  background-color: black;
 }
 .box::after {
   content: "";
@@ -76,7 +96,19 @@ h1 {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   bottom: -4rem;
   transform: translateX(-50%);
-  animation: leftToRight 5s linear infinite;
+  animation: leftToRight 3s linear infinite;
+  animation-play-state: var(--play-state);
+}
+
+#play-button {
+  display: block;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  cursor: pointer;
+  font-size: 2rem;
+  border: none;
+  background-color: burlywood;
+  font-weight: bold;
 }
 
 @keyframes leftToRight {
